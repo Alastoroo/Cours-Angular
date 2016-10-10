@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body >
+<div ng-controller="BillCtrl">
+  <ul>
+      <li ng-repeat="article in articles">
+          <label>{{article.name}}:</label>
+          <input ng-model="article.price"/>
+          <input type="number" ng-model="article.quantity"/>
+      </li>
+  </ul>
+  <div>
+      <label>Total facture: </label><span>{{total() | currency:"€":2}}</span>
+  </div>
+  <div>
+       <label>Réduction: </label><span>{{discount | currency: "€":2}}</span>
+  </div>
+  <div>
+      <label>Somme à payer: </label><span>{{finalTotal() | currency: "€":2}}</span>
+  </div>
+</div>
+
+<div ng-controller="testController as store">
+<h1 ng-show="true">{{"Hello Mathieu"}}</h1>
+<h1>{{1+2}}</h1>
+
+<input type="text" ng-model="name"/>
+
+<h2>{{"Bonjour " + name}}</h2>
+
+<test></test>
+
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
